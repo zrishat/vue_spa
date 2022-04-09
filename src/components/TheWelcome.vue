@@ -2,10 +2,10 @@
 export default {
   data() {
     return {
-      lastResult: 10,
-      allTasks: 25,
-      accuracy: 80,
-      trainingDay: 24
+      lastResult: this.$store.state.lastResult,
+      allTasks: this.$store.state.allTasks,
+      accuracy: this.$store.state.accuracy,
+      trainingDay: this.$store.state.trainingDay
     }
   }
 }
