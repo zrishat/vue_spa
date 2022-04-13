@@ -15,6 +15,12 @@ import TheWelcome from '../components/TheWelcome.vue'
   export default {
     methods: {
       goPlay() {
+        this.$store.dispatch('save', {
+          duration: this.duration,
+          difficulty: this.difficulty,
+          operations: this.operations,
+          hint: this.hint,
+        });
         this.$router.push('/play')
       }
     }

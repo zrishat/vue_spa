@@ -3,7 +3,7 @@ export default {
   data() {
     return {
       i_duration: this.$store.state.i_duration,
-      i_difficult: 4,
+      i_difficult: this.$store.state.i_duration,
       i_summ: true,
       i_substract: false,
       i_multiplication: true,
@@ -12,6 +12,9 @@ export default {
     }
   },
   methods: {
+    updateDuration (e) {
+      this.$store.commit('updateDuration', e.target.value)
+    },
     changeDifficultByRange(){
         this.i_summ = false
         this.i_substract = false
@@ -67,7 +70,7 @@ export default {
 <h2>Настройки</h2>
 
 <p>
-  <input type="range" id="i_duration" min="1" max="15" step="1" v-model="i_duration"><br>
+  <input type="range" id="i_duration" min="1" max="15" step="1" v-model="i_duration" @change="updateDuration"><br>
   <label for="i_duration">Длительность {{ i_duration }} минут</label>
 </p>
 <p>
